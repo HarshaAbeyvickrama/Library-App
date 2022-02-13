@@ -10,11 +10,11 @@ const Library :React.FC = () => {
                 <Col xs={12} className="px-0">
                     <Welcome />
                 </Col>
-                <Col xs={6}>
-                    <SectionTitle />
-                    <div>Booksssdsd</div>
+                <Col xs={6} className="bor ps-md-5">
+                    <SectionTitle title={"Authors"}/>
+
                 </Col>
-                <Col xs={6}>
+                <Col xs={6} className="bor ps-md-5">
                     <div>Author</div>
                 </Col>
             </Row>
