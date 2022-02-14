@@ -6,6 +6,7 @@ import Divider from "../components/Common/Divider";
 import EmptyList from "../components/Common/EmptyList";
 import AddItem from "../components/Common/AddItem";
 import ListItem from "../components/Common/ListItem";
+import List from "../components/Common/List";
 
 const Library :React.FC = () => {
     return(
@@ -18,13 +19,12 @@ const Library :React.FC = () => {
                     <div>Books</div>
                 </Col>
                 <Col md={{order:2 , span:6}} xs={{order:1 , span:12}} className="bor px-md-5 p-3">
+
                     <SectionTitle title={"Authors"}/>
                     <Divider />
                     {/*<EmptyList sectionTitle={"Author"} />*/}
                     {/*<AddItem title={"book"} />*/}
-                    <ListItem name={'Abeyvickrama'} number={1} />
-                    <ListItem name={'Harsha'} number={2} />
-                    <ListItem name={'Hansika'} number={3} />
+                   <List />
                 </Col>
             </Row>
         </Container>
