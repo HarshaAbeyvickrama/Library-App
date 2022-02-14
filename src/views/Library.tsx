@@ -7,24 +7,25 @@ import EmptyList from "../components/Common/EmptyList";
 import AddItem from "../components/Common/AddItem";
 import ListItem from "../components/Common/ListItem";
 import List from "../components/Common/List";
+import FormTitle from "../components/Common/FormTitle";
 
-const Library :React.FC = () => {
-    return(
+const Library: React.FC = () => {
+    return (
         <Container fluid={true}>
             <Row>
                 <Col xs={12} className="px-0">
-                    <Welcome />
+                    <Welcome/>
                 </Col>
-                <Col md={{order:1 , span:6}} xs={{order:2 , span:12}} className="bor ps-md-5 p-3">
+                <Col lg={{order: 1, span: 6}} md={{order: 2, span: 9}} xs={{order: 2, span: 12}} className="bor ps-md-5 p-3">
                     <div>Books</div>
                 </Col>
-                <Col md={{order:2 , span:6}} xs={{order:1 , span:12}} className="bor px-md-5 p-3">
-
+                <Col lg={{order: 2, span: 6}} md={{order: 1, span: 9}} xs={{order: 1, span: 12}} className="bor px-md-5 p-3">
                     <SectionTitle title={"Authors"}/>
-                    <Divider />
-                    {/*<EmptyList sectionTitle={"Author"} />*/}
-                    {/*<AddItem title={"book"} />*/}
-                   <List />
+                    <Divider/>
+                    <EmptyList sectionTitle={"Author"}/>
+                    <List/>
+                    <AddItem title={"book"}/>
+                    <FormTitle name={"Author"} />
                 </Col>
             </Row>
         </Container>
