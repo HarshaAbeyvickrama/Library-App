@@ -1,0 +1,13 @@
+.add-icon{
+  color: #01589D;
+  display: inline-block;
+}
+.add-item{
+  .add-item-text{
+    color: #363A3D;
+    font-weight: 500;
+  }
+  &:hover{
+    cursor: pointer;
+  }
+}
