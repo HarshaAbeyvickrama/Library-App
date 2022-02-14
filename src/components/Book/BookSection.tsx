@@ -8,6 +8,7 @@ import BookForm from "./BookForm";
 import {IBook} from "../../types/IBook";
 import SweetAlert from "react-bootstrap-sweetalert";
 import DeleteConfirmation from "../Alerts/DeleteConfirmation";
+import SuccessAlert from "../Alerts/SuccessAlert";
 
 const BookSection: React.FC = () => {
     const books: IBook[] = [
@@ -17,21 +18,31 @@ const BookSection: React.FC = () => {
         {title: "All the Missing Girls"},
         {title: "The Beautiful Bureaucrat"},
     ];
-    const deleteFile = () => {
-        console.log("Deleted");
+
+    const onItemDeleted = () => {
+        setShowDeleteConfirmation(false);
+        setShowSuccessAlert(true);
     }
     const [showBookForm, setShowBookForm] = useState(false);
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
     return (
         <React.Fragment>
             <SectionTitle title={"Books"}/>
             <Divider/>
             {!books
                 ? <EmptyList sectionTitle={"Book"}/>
-                : <List items={books}/>
+                : <List items={books} onDeleteIconClicked={setShowDeleteConfirmation}/>
             }
             <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>
             {showBookForm && <BookForm onFormClose={setShowBookForm}/>}
-            <DeleteConfirmation onDelete={deleteFile} show={true}/>
+            <DeleteConfirmation
+                onDelete={onItemDeleted}
+                show={showDeleteConfirmation}
+                setShow={setShowDeleteConfirmation}
+            />
+            <SuccessAlert show={showSuccessAlert} setShow={setShowSuccessAlert} message={"Book Successfully Deleted!"}/>
+
         </React.Fragment>
     );
 }
