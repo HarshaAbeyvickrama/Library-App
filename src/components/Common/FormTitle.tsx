@@ -9,11 +9,11 @@ interface FormTitleProps {
 const FormTitle: React.FC<FormTitleProps> = ({name}) => {
     return (
         <Row className="d-flex mx-0 form-title" >
-            <Col className="align-items-center ps-0" xs={6}>
+            <Col className="align-items-center ps-0" xs={9}>
                 <span className="">Create {name}</span>
             </Col>
-            <Col className="d-flex justify-content-end align-items-center" xs={3}>
-                <XCircle className="pe-sm-1 close-icon me-2"/>
+            <Col className="d-flex justify-content-end align-items-center px-0" xs={3}>
+                <XCircle className="px-0 close-icon mx-0"/>
             </Col>
         </Row>
 

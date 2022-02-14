@@ -10,6 +10,8 @@ import List from "../components/Common/List";
 import FormTitle from "../components/Common/FormTitle";
 import InputField from "../components/Common/InputField";
 import CreateButton from "../components/Common/CreateButton";
+import Form from "../components/Common/Form";
+import AuthorSection from "../components/Common/AuthorSection";
 
 const Library: React.FC = () => {
     return (
@@ -18,18 +20,13 @@ const Library: React.FC = () => {
                 <Col xs={12} className="px-0">
                     <Welcome/>
                 </Col>
-                <Col lg={{order: 1, span: 6}} md={{order: 2, span: 9}} xs={{order: 2, span: 12}} className="bor ps-md-5 p-3">
+                <Col lg={{order: 1, span: 6}} md={{order: 2, span: 12}} xs={{order: 2, span: 12}}
+                     className="bor ps-md-5 p-3">
                     <div>Books</div>
                 </Col>
-                <Col lg={{order: 2, span: 6}} md={{order: 1, span: 9}} xs={{order: 1, span: 12}} className="bor px-md-5 p-3">
-                    <SectionTitle title={"Authors"}/>
-                    <Divider/>
-                    <EmptyList sectionTitle={"Author"}/>
-                    <List/>
-                    <AddItem title={"book"}/>
-                    <FormTitle name={"Author"} />
-                    <InputField title={"Name of Author"} />
-                    <CreateButton title={"Create"} />
+                <Col lg={{order: 2, span: 6}} md={{order: 1, span: 12}} xs={{order: 1, span: 12}}
+                     className="bor px-md-5 p-3">
+                    <AuthorSection />
                 </Col>
             </Row>
         </Container>
