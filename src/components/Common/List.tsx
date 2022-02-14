@@ -1,8 +1,12 @@
 import React from "react";
 import ListItem from "./ListItem";
-import {Row} from "react-bootstrap";
-
-const List :React.FC = () => {
+import {IAuthor} from "../../types/IAuthor";
+import {IBook} from "../../types/IBook";
+interface ListProps{
+    items : IAuthor[] | IBook[];
+}
+const List :React.FC<ListProps> = ({items}) => {
+    console.log(items);
     return(
         <div className="list my-4">
             <ListItem name={'Abeyvickrama'} number={1} />

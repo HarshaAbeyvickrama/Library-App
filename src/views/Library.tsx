@@ -10,8 +10,9 @@ import List from "../components/Common/List";
 import FormTitle from "../components/Common/FormTitle";
 import InputField from "../components/Common/InputField";
 import CreateButton from "../components/Common/CreateButton";
-import Form from "../components/Common/Form";
-import AuthorSection from "../components/Common/AuthorSection";
+import AuthorForm from "../components/Author/AuthorForm";
+import AuthorSection from "../components/Author/AuthorSection";
+import BookSection from "../components/Book/BookSection";
 
 const Library: React.FC = () => {
     return (
@@ -22,7 +23,7 @@ const Library: React.FC = () => {
                 </Col>
                 <Col lg={{order: 1, span: 6}} md={{order: 2, span: 12}} xs={{order: 2, span: 12}}
                      className="bor ps-md-5 p-3">
-                    <div>Books</div>
+                    <BookSection />
                 </Col>
                 <Col lg={{order: 2, span: 6}} md={{order: 1, span: 12}} xs={{order: 1, span: 12}}
                      className="bor px-md-5 p-3">
