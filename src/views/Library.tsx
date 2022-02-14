@@ -8,6 +8,7 @@ import AddItem from "../components/Common/AddItem";
 import ListItem from "../components/Common/ListItem";
 import List from "../components/Common/List";
 import FormTitle from "../components/Common/FormTitle";
+import InputField from "../components/Common/InputField";
 
 const Library: React.FC = () => {
     return (
@@ -26,6 +27,7 @@ const Library: React.FC = () => {
                     <List/>
                     <AddItem title={"book"}/>
                     <FormTitle name={"Author"} />
+                    <InputField title={"Name of Author"} />
                 </Col>
             </Row>
         </Container>

@@ -1,11 +1,17 @@
+$weird-green : #0E483E;
+
 .form-title{
-  color: #0E483E;
+  color: $weird-green;
   font-size: 1.5rem;
   font-weight: 500;
+  span{
+    border-bottom: 3px solid $weird-green;
+  }
 
 }
 .close-icon{
   width: 1.8rem;
+  color: #222222;
   &:hover{
     cursor: pointer;
     transform: scale(1.1);
