@@ -22,7 +22,7 @@ const Library: React.FC = () => {
                     <Welcome/>
                 </Col>
                 <Col lg={{order: 1, span: 6}} md={{order: 2, span: 12}} xs={{order: 2, span: 12}}
-                     className="bor ps-md-5 p-3">
+                     className="bor px-md-5 p-3">
                     <BookSection />
                 </Col>
                 <Col lg={{order: 2, span: 6}} md={{order: 1, span: 12}} xs={{order: 1, span: 12}}

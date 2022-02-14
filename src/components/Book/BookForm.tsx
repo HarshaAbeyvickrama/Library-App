@@ -4,11 +4,15 @@ import FormTitle from "../Common/FormTitle";
 import InputField from "../Common/InputField";
 import CreateButton from "../Common/CreateButton";
 
-const BookForm: React.FC<any> = () => {
+interface BookFormProps {
+    onFormClose: (form: boolean) => void
+}
+
+const BookForm: React.FC<BookFormProps> = ({onFormClose}) => {
     return (
         <Row className="px-0 my-4 my-md-4 mx-0">
             <Col xs={12}  lg={9} className="px-0">
-                <FormTitle name={"Book"}/>
+                <FormTitle name={"Book"} onFormClose={onFormClose}/>
                 <InputField title={"Title of the Book"}/>
                 <InputField title={"ISBN"}/>
                 <CreateButton title={"Create"}/>
