@@ -7,7 +7,7 @@ import AddItem from "../Common/AddItem";
 import AuthorForm from "./AuthorForm";
 import {IAuthor} from "../../types/IAuthor";
 
-const AuthorSection :React.FC = () => {
+const AuthorSection: React.FC = () => {
     const authors: IAuthor[] = [
         {authorName: "Armando Lucas Correa"},
         {authorName: "Jess Kidd"},
@@ -16,14 +16,16 @@ const AuthorSection :React.FC = () => {
         {authorName: "Megan Miranda"},
     ];
 
-    const [showAuthorForm , setShowAuthorForm ] = useState(false);
+    const [showAuthorForm, setShowAuthorForm] = useState(false);
 
-    return(
+    return (
         <React.Fragment>
-            <SectionTitle title={"Authors"} />
+            <SectionTitle title={"Authors"}/>
             <Divider/>
-            <EmptyList sectionTitle={"Author"}/>
-            <List items={authors}/>
+            {!authors
+                ? <EmptyList sectionTitle={"Author"}/>
+                : <List items={authors}/>
+            }
             <AddItem title={"Author"} onAddItemClick={setShowAuthorForm}/>
             {showAuthorForm && <AuthorForm onFormClose={setShowAuthorForm}/>}
         </React.Fragment>

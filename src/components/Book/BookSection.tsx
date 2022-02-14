@@ -20,13 +20,15 @@ const BookSection: React.FC = () => {
     const deleteFile = () => {
         console.log("Deleted");
     }
-    const [showBookForm , setShowBookForm ] = useState(false);
+    const [showBookForm, setShowBookForm] = useState(false);
     return (
         <React.Fragment>
             <SectionTitle title={"Books"}/>
             <Divider/>
-            <EmptyList sectionTitle={"Book"}/>
-            <List items={books}/>
+            {!books
+                ? <EmptyList sectionTitle={"Book"}/>
+                : <List items={books}/>
+            }
             <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>
             {showBookForm && <BookForm onFormClose={setShowBookForm}/>}
             <DeleteConfirmation onDelete={deleteFile} show={true}/>
