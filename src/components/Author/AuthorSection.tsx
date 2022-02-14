@@ -9,7 +9,11 @@ import {IAuthor} from "../../types/IAuthor";
 
 const AuthorSection :React.FC = () => {
     const authors: IAuthor[] = [
-        {authorName: "vh"}
+        {authorName: "Armando Lucas Correa"},
+        {authorName: "Jess Kidd"},
+        {authorName: "Martha McPhee"},
+        {authorName: "Martha McPhee"},
+        {authorName: "Megan Miranda"},
     ];
     return(
         <React.Fragment>

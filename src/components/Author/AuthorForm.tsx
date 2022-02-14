@@ -7,7 +7,7 @@ import CreateButton from "../Common/CreateButton";
 const AuthorForm: React.FC<any> = () => {
     return (
         <Row className="px-0 my-4 mx-0">
-            <Col xs={12} className="px-0">
+            <Col xs={12} lg={9} className="px-0">
                 <FormTitle name={"Author"}/>
                 <InputField title={"Name of Author"}/>
                 <CreateButton title={"Create"}/>
