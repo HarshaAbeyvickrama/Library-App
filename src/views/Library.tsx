@@ -4,6 +4,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import SectionTitle from "../components/Common/SectionTitle";
 import Divider from "../components/Common/Divider";
 import EmptyList from "../components/Common/EmptyList";
+import AddItem from "../components/Common/AddItem";
 
 const Library :React.FC = () => {
     return(
@@ -19,6 +20,7 @@ const Library :React.FC = () => {
                     <SectionTitle title={"Authors"}/>
                     <Divider />
                     <EmptyList sectionTitle={"Author"} />
+                    <AddItem title={"book"} />
                 </Col>
             </Row>
         </Container>
