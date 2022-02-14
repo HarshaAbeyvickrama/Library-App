@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import SectionTitle from "../Common/SectionTitle";
 import Divider from "../Common/Divider";
 import EmptyList from "../Common/EmptyList";
@@ -15,14 +15,17 @@ const AuthorSection :React.FC = () => {
         {authorName: "Martha McPhee"},
         {authorName: "Megan Miranda"},
     ];
+
+    const [showAuthorForm , setShowAuthorForm ] = useState(false);
+
     return(
         <React.Fragment>
-            <SectionTitle title={"Authors"}/>
+            <SectionTitle title={"Authors"} />
             <Divider/>
             <EmptyList sectionTitle={"Author"}/>
             <List items={authors}/>
-            <AddItem title={"book"}/>
-            <AuthorForm/>
+            <AddItem title={"Author"} onAddItemClick={setShowAuthorForm}/>
+            {showAuthorForm && <AuthorForm onFormClose={setShowAuthorForm}/>}
         </React.Fragment>
     );
 }
