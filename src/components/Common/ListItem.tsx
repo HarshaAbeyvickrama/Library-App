@@ -9,7 +9,6 @@ interface ListItemProps {
 }
 
 const ListItem: React.FC<ListItemProps> = ({name, index,onDeleteIconClicked}) => {
-
     return (
         <Row className="list-item d-flex mx-0 py-1">
             <Col className="align-items-center ps-0" xs={9}>
