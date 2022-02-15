@@ -8,6 +8,7 @@ import AuthorForm from "./AuthorForm";
 import {IAuthor} from "../../types/IAuthor";
 import DeleteConfirmation from "../Alerts/DeleteConfirmation";
 import SuccessAlert from "../Alerts/SuccessAlert";
+import {forEach} from "react-bootstrap/ElementChildren";
 
 const AuthorSection: React.FC = () => {
     const authors: IAuthor[] = [
@@ -22,16 +23,27 @@ const AuthorSection: React.FC = () => {
         setShowDeleteConfirmation(false);
         setShowSuccessAlert(true);
     }
+    const onAuthorDeleteClicked = (authorIndexToBeDeleted : number) => {
+        console.log("Item index : " , authorIndexToBeDeleted);
+        authors.forEach((author:IAuthor,index) => {
+            if(index === authorIndexToBeDeleted){
+                setCurrentAuthorToBeDeleted(author);
+            }
+        })
+        setShowDeleteConfirmation(true);
+    }
     const [showAuthorForm, setShowAuthorForm] = useState(false);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [currentAuthorToBeDeleted, setCurrentAuthorToBeDeleted] = useState<IAuthor | null>(null);
+
     return (
         <React.Fragment>
             <SectionTitle title={"Authors"}/>
             <Divider/>
             {!authors
                 ? <EmptyList sectionTitle={"Author"}/>
-                : <List items={authors} onDeleteIconClicked={setShowDeleteConfirmation}/>
+                : <List items={authors} onDeleteIconClicked={onAuthorDeleteClicked}/>
             }
             <AddItem title={"Author"} onAddItemClick={setShowAuthorForm}/>
             {showAuthorForm && <AuthorForm onFormClose={setShowAuthorForm}/>}

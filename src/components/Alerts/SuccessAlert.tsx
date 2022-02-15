@@ -9,7 +9,7 @@ interface SuccessAlertProps {
 
 const SuccessAlert: React.FC<SuccessAlertProps> = ({show, setShow, message}) => {
     return (
-        <SweetAlert success title="Good job!"
+        <SweetAlert success title="Done!"
                     show={show}
                     onConfirm={() => {
                         setShow(false);

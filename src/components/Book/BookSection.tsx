@@ -23,6 +23,9 @@ const BookSection: React.FC = () => {
         setShowDeleteConfirmation(false);
         setShowSuccessAlert(true);
     }
+    const onBookDeleteClicked = (bookIndexToBeDeleted : number) => {
+        setShowDeleteConfirmation(true);
+    }
     const [showBookForm, setShowBookForm] = useState(false);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
@@ -32,7 +35,7 @@ const BookSection: React.FC = () => {
             <Divider/>
             {!books
                 ? <EmptyList sectionTitle={"Book"}/>
-                : <List items={books} onDeleteIconClicked={setShowDeleteConfirmation}/>
+                : <List items={books} onDeleteIconClicked={onBookDeleteClicked}/>
             }
             <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>
             {showBookForm && <BookForm onFormClose={setShowBookForm}/>}
