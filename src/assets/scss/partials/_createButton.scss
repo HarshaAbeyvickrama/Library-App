@@ -1,9 +1,12 @@
 .create-button{
-  &input{
-    background-color: #01589D;
-    color: #B6E7F2 !important;
-    &:hover{
-      background-color:#01589D;
-    }
+  opacity: 1;
+  background-color: #01589D !important;
+  border-radius: 7px;
+  //color: #B6E7F2 !important;
+  &:hover{
+    background-color:#01589D !important;
+  }
+  &:focus{
+    box-shadow: none;
   }
 }

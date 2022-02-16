@@ -7,8 +7,8 @@ interface CreateButtonProps {
 
 const CreateButton: React.FC<CreateButtonProps> = ({title}) => {
     return (
-        <Col className="create-button mt-4 d-flex justify-content-end">
-            <Button type="submit" className="px-4 py-1 ">
+        <Col className="mt-4 d-flex justify-content-end">
+            <Button type="submit" className="px-4 py-1 create-button">
                 {title}
             </Button>
         </Col>
