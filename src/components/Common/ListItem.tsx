@@ -4,21 +4,20 @@ import {Col, Row} from "react-bootstrap";
 
 interface ListItemProps {
     name: String,
-    number: number,
-    onDeleteIconClicked : (deleteItem : boolean) => void
+    index: number,
+    onDeleteIconClicked : (authorIndex: number) => void
 }
 
-const ListItem: React.FC<ListItemProps> = ({name, number,onDeleteIconClicked}) => {
-
+const ListItem: React.FC<ListItemProps> = ({name, index,onDeleteIconClicked}) => {
     return (
-        <Row className="list-item d-flex mx-0">
+        <Row className="list-item d-flex mx-0 py-1">
             <Col className="align-items-center ps-0" xs={9}>
-                <span className="">{number}. {name}</span>
+                <span className="">{index+1}. {name}</span>
             </Col>
-            <Col className="d-flex justify-content-end align-items-center" xs={3}>
+            <Col className="d-none justify-content-end align-items-center list-item-icons" xs={3}>
                 <Edit className="d-inline-block pe-sm-1 edit-icon me-2"/>
                 <Trash2 className="d-inline-block pe-sm-1 delete-icon" onClick={() => {
-                    onDeleteIconClicked(true);
+                    onDeleteIconClicked(index);
                 }}/>
             </Col>
         </Row>

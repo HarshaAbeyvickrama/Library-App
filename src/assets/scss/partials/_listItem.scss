@@ -4,11 +4,13 @@
 
   &:hover {
     background-color: #F5F5F5;
+    .list-item-icons{
+      display: flex !important;
+    }
   }
 
   .edit-icon {
     color: #E0A34E;
-
     &:hover {
       cursor: pointer;
       transform: scale(1.1);

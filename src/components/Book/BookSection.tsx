@@ -9,6 +9,8 @@ import {IBook} from "../../types/IBook";
 import SweetAlert from "react-bootstrap-sweetalert";
 import DeleteConfirmation from "../Alerts/DeleteConfirmation";
 import SuccessAlert from "../Alerts/SuccessAlert";
+import {IAuthor} from "../../types/IAuthor";
+import SuccessTimeoutAlert from "../Alerts/SuccessTimeoutAlert";
 
 const BookSection: React.FC = () => {
     const books: IBook[] = [
@@ -23,25 +25,44 @@ const BookSection: React.FC = () => {
         setShowDeleteConfirmation(false);
         setShowSuccessAlert(true);
     }
+    const onBookDeleteClicked = (bookIndexToBeDeleted: number) => {
+        books.forEach((book: IBook, index) => {
+            if (index === bookIndexToBeDeleted) {
+                setCurrentBookToBeDeleted(book);
+            }
+        })
+        setShowDeleteConfirmation(true);
+    }
+    //options for react select
+    const options = books.filter((book, index) => (
+        {value: index, label: book.title}
+    ));
     const [showBookForm, setShowBookForm] = useState(false);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [currentBookTobeDeleted, setCurrentBookToBeDeleted] = useState<IBook | null>(null);
     return (
         <React.Fragment>
             <SectionTitle title={"Books"}/>
             <Divider/>
             {!books
                 ? <EmptyList sectionTitle={"Book"}/>
-                : <List items={books} onDeleteIconClicked={setShowDeleteConfirmation}/>
+                : <List items={books} onDeleteIconClicked={onBookDeleteClicked}/>
             }
-            <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>
-            {showBookForm && <BookForm onFormClose={setShowBookForm}/>}
+            {!showBookForm && <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>}
+            {showBookForm && <BookForm onFormClose={setShowBookForm} options={options}/>}
             <DeleteConfirmation
                 onDelete={onItemDeleted}
                 show={showDeleteConfirmation}
                 setShow={setShowDeleteConfirmation}
+                title={"Delete Book " + currentBookTobeDeleted?.title + "?"}
+                confirmBtnText={"Delete Book"}
             />
-            <SuccessAlert show={showSuccessAlert} setShow={setShowSuccessAlert} message={"Book Successfully Deleted!"}/>
+            <SuccessTimeoutAlert
+                show={showSuccessAlert}
+                setShow={setShowSuccessAlert}
+                itemType={"Book"}
+            />
 
         </React.Fragment>
     );
