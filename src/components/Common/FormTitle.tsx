@@ -7,13 +7,13 @@ interface FormTitleProps {
     onFormClose: (form: boolean) => void
 }
 
-const FormTitle: React.FC<FormTitleProps> = ({name,onFormClose}) => {
+const FormTitle: React.FC<FormTitleProps> = ({name, onFormClose}) => {
 
     const onCloseClicked = () => {
         onFormClose(false);
     }
     return (
-        <Row className="d-flex mx-0 mb-4 form-title" >
+        <Row className="d-flex mx-0 mb-4 form-title">
             <Col className="align-items-center ps-0" xs={9}>
                 <span className="">Create {name}</span>
             </Col>

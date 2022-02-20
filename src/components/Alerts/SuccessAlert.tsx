@@ -14,7 +14,7 @@ const SuccessAlert: React.FC<SuccessAlertProps> = ({show, setShow, message}) => 
                     onConfirm={() => {
                         setShow(false);
                     }}
-                    >
+        >
             {message}
         </SweetAlert>
     );

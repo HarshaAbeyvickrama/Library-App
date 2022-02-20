@@ -5,14 +5,14 @@ import {Col, Row} from "react-bootstrap";
 interface ListItemProps {
     name: String,
     index: number,
-    onDeleteIconClicked : (authorIndex: number) => void
+    onDeleteIconClicked: (authorIndex: number) => void
 }
 
-const ListItem: React.FC<ListItemProps> = ({name, index,onDeleteIconClicked}) => {
+const ListItem: React.FC<ListItemProps> = ({name, index, onDeleteIconClicked}) => {
     return (
         <Row className="list-item d-flex mx-0 py-1">
             <Col className="align-items-center ps-0" xs={9}>
-                <span className="">{index+1}. {name}</span>
+                <span className="">{index + 1}. {name}</span>
             </Col>
             <Col className="d-none justify-content-end align-items-center list-item-icons" xs={3}>
                 <Edit className="d-inline-block pe-sm-1 edit-icon me-2"/>

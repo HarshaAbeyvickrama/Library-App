@@ -6,10 +6,7 @@ import List from "../Common/List";
 import AddItem from "../Common/AddItem";
 import BookForm from "./BookForm";
 import {IBook} from "../../types/IBook";
-import SweetAlert from "react-bootstrap-sweetalert";
 import DeleteConfirmation from "../Alerts/DeleteConfirmation";
-import SuccessAlert from "../Alerts/SuccessAlert";
-import {IAuthor} from "../../types/IAuthor";
 import SuccessTimeoutAlert from "../Alerts/SuccessTimeoutAlert";
 
 const BookSection: React.FC = () => {
@@ -49,7 +46,7 @@ const BookSection: React.FC = () => {
                 ? <EmptyList sectionTitle={"Book"}/>
                 : <List items={books} onDeleteIconClicked={onBookDeleteClicked}/>
             }
-             <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>
+            <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>
             {showBookForm && <BookForm onFormClose={setShowBookForm} options={options}/>}
             <DeleteConfirmation
                 onDelete={onItemDeleted}

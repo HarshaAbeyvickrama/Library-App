@@ -5,11 +5,11 @@ interface DeleteConfirmationProps {
     onDelete: () => void,
     show: boolean,
     setShow: (show: boolean) => void,
-    title : string,
+    title: string,
     confirmBtnText: string
 }
 
-const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({onDelete, show, setShow, title,confirmBtnText}) => {
+const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({onDelete, show, setShow, title, confirmBtnText}) => {
     return (
         <SweetAlert
             show={show}
