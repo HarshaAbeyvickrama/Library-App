@@ -3,7 +3,6 @@ import {Col, Form, Row} from "react-bootstrap";
 import FormTitle from "../Common/FormTitle";
 import InputField from "../Common/InputField";
 import CreateButton from "../Common/CreateButton";
-import FormToast from "../Alerts/FormToast";
 
 interface AuthorFormProps {
     onFormClose: (form: boolean) => void,

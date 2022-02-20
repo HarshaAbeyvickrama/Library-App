@@ -23,6 +23,7 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
     const [currentAuthorToBeDeleted, setCurrentAuthorToBeDeleted] = useState<IAuthor | null>(null);
 
     const onItemDeleted = () => {
+
         setShowDeleteConfirmation(false);
         setShowDeleteSuccessAlert(true);
     }
@@ -35,6 +36,9 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
                 setCurrentAuthorToBeDeleted(author);
             }
         })
+        const allAuthors = authors;
+        allAuthors.splice(authorIndexToBeDeleted,1);
+        handleSetAuthors(allAuthors);
         setShowDeleteConfirmation(true);
     }
     const handleOnSubmit = (e: React.FormEvent) => {
