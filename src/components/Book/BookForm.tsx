@@ -6,7 +6,7 @@ import CreateButton from "../Common/CreateButton";
 import {IBook} from "../../types/IBook";
 
 interface BookFormProps {
-    onFormClose: (form: boolean) => void,
+    onFormClose: () => void,
     options: IBook[]
 }
 

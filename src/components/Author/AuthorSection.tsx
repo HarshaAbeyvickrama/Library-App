@@ -21,9 +21,39 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
     const [showDeleteSuccessAlert, setShowDeleteSuccessAlert] = useState(false);
     const [showAddSuccessAlert, setShowAddSuccessAlert] = useState(false);
     const [currentAuthorToBeDeleted, setCurrentAuthorToBeDeleted] = useState<IAuthor | null>(null);
+    const [currentAuthorToBeEdited, setCurrentAuthorToBeEdited] = useState<IAuthor | null>(null);
+    const [isEditingAuthor, setIsEditingAuthor] = useState(false);
+    const [authorIndexEdited, setAuthorIndexEdited] = useState<number | null>(null);
 
+
+    const onEditIconClicked = (authorIndexToBeEdited: number) => {
+        if (!authors) {
+            return;
+        }
+        authors.forEach((author: IAuthor, index) => {
+            if (index === authorIndexToBeEdited) {
+                setCurrentAuthorToBeEdited(author);
+                setAuthorIndexEdited(authorIndexToBeEdited);
+            }
+        })
+        setShowAuthorForm(true);
+        setIsEditingAuthor(true);
+    }
+    // useEffect(() => {
+    //     onItemEdited();
+    // }, [authorIndexEdited])
+    //
+    useEffect(() => {
+        if (currentAuthorToBeEdited) {
+
+        }
+    }, [currentAuthorToBeEdited]);
+
+    const onItemEdited = () => {
+
+        setIsEditingAuthor(false);
+    }
     const onItemDeleted = () => {
-
         setShowDeleteConfirmation(false);
         setShowDeleteSuccessAlert(true);
     }
@@ -37,7 +67,7 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
             }
         })
         const allAuthors = authors;
-        allAuthors.splice(authorIndexToBeDeleted,1);
+        allAuthors.splice(authorIndexToBeDeleted, 1);
         handleSetAuthors(allAuthors);
         setShowDeleteConfirmation(true);
     }
@@ -48,9 +78,24 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
         }
         const authorName = form.authorName.value;
         const author = {authorName: authorName};
-        setNewAuthor(author);
-        setShowAddSuccessAlert(true);
 
+        if (isEditingAuthor) {
+            if (authors && authorIndexEdited) {
+                const allAuthors = authors;
+                if (currentAuthorToBeEdited) {
+                    allAuthors.splice(authorIndexEdited, 1, currentAuthorToBeEdited);
+                    handleSetAuthors(allAuthors);
+                }
+            }
+        } else {
+            setNewAuthor(author);
+            setShowAddSuccessAlert(true);
+        }
+
+    }
+    const handleOnClose = () => {
+        setIsEditingAuthor(false);
+        setShowAuthorForm(false);
     }
     useEffect(() => {
         if (!newAuthor) {
@@ -63,7 +108,10 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
         }
 
     }, [newAuthor])
-
+    const handleOnAddItemClick = () => {
+        setIsEditingAuthor(false);
+        setShowAuthorForm(true);
+    }
 
     return (
         <React.Fragment>
@@ -71,10 +119,13 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
             <Divider/>
             {!authors
                 ? <EmptyList sectionTitle={"Author"}/>
-                : <List items={authors} onDeleteIconClicked={onAuthorDeleteClicked}/>
+                : <List items={authors} onDeleteIconClicked={onAuthorDeleteClicked}
+                        onEditIconClicked={onEditIconClicked}/>
             }
-            <AddItem title={"Author"} onAddItemClick={setShowAuthorForm}/>
-            {showAuthorForm && <AuthorForm onFormClose={setShowAuthorForm} handleOnSubmit={handleOnSubmit}/>}
+            <AddItem title={"Author"} onAddItemClick={handleOnAddItemClick}/>
+            {showAuthorForm &&
+                <AuthorForm onFormClose={handleOnClose} handleOnSubmit={handleOnSubmit} isEditing={isEditingAuthor}
+                            currentAuthorEdited={currentAuthorToBeEdited}/>}
             <DeleteConfirmation
                 onDelete={onItemDeleted}
                 show={showDeleteConfirmation}
