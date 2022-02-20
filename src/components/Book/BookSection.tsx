@@ -38,16 +38,20 @@ const BookSection: React.FC = () => {
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
     const [currentBookTobeDeleted, setCurrentBookToBeDeleted] = useState<IBook | null>(null);
+    const handleOnAddItemClick = () => {
+        setShowBookForm(true);
+
+    }
     return (
         <React.Fragment>
             <SectionTitle title={"Books"}/>
             <Divider/>
             {!books
                 ? <EmptyList sectionTitle={"Book"}/>
-                : <List items={books} onDeleteIconClicked={onBookDeleteClicked}/>
+                : <List items={books} onDeleteIconClicked={onBookDeleteClicked} onEditIconClicked={() => {}}/>
             }
-            <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>
-            {showBookForm && <BookForm onFormClose={setShowBookForm} options={options}/>}
+            <AddItem title={"Book"} onAddItemClick={handleOnAddItemClick}/>
+            {showBookForm && <BookForm onFormClose={() => {}} options={options}/>}
             <DeleteConfirmation
                 onDelete={onItemDeleted}
                 show={showDeleteConfirmation}
@@ -58,7 +62,9 @@ const BookSection: React.FC = () => {
             <SuccessTimeoutAlert
                 show={showSuccessAlert}
                 setShow={setShowSuccessAlert}
-                itemType={"Book"}
+                message={"Book"}
+                title={"Book Deleted Successfully!"}
+                timeout={1500}
             />
 
         </React.Fragment>

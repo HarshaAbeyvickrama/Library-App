@@ -4,26 +4,28 @@ import SweetAlert from "react-bootstrap-sweetalert";
 interface SuccessTimeoutAlertProps {
     show: boolean,
     setShow: (show: boolean) => void,
-    itemType: string
+    message: string,
+    title: string,
+    timeout: number
 }
 
-const SuccessTimeoutAlert: React.FC<SuccessTimeoutAlertProps> = ({itemType, show, setShow}) => {
+const SuccessTimeoutAlert: React.FC<SuccessTimeoutAlertProps> = ({message, show, setShow,title,timeout}) => {
     useEffect(() => {
         setTimeout(() => {
             setShow(false);
-        }, 2000)
+        }, timeout)
     }, [setShow, show])
     return (
         <SweetAlert
             success
             show={show}
-            title={"Success"}
+            title={title}
             onConfirm={() => {
             }}
             showConfirm={false}
             closeAnim={{name: 'hideSweetAlert', duration: 100}}
         >
-            {itemType + " Successfully Deleted!"}
+            {message}
         </SweetAlert>
     );
 }
