@@ -16,9 +16,9 @@ const BookForm: React.FC<BookFormProps> = ({onFormClose, options}) => {
             <Form className="ps-0">
                 <Col xs={12} lg={9} md={10} className="px-0">
                     <FormTitle name={"Book"} onFormClose={onFormClose}/>
-                    <InputField title={"Title of the Book"}/>
-                    <InputField title={"ISBN"}/>
-                    <CreateButton title={"Create"}/>
+                    <InputField title={"Title of the Book"} name={"bookTitle"}/>
+                    <InputField title={"ISBN"} name={"ISBN"}/>
+                    {/*<CreateButton title={"Create"}/>*/}
                 </Col>
             </Form>
         </Row>
