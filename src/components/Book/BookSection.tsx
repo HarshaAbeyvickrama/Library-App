@@ -49,7 +49,7 @@ const BookSection: React.FC = () => {
                 ? <EmptyList sectionTitle={"Book"}/>
                 : <List items={books} onDeleteIconClicked={onBookDeleteClicked}/>
             }
-            {!showBookForm && <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>}
+             <AddItem title={"Book"} onAddItemClick={setShowBookForm}/>
             {showBookForm && <BookForm onFormClose={setShowBookForm} options={options}/>}
             <DeleteConfirmation
                 onDelete={onItemDeleted}

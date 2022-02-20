@@ -13,8 +13,8 @@ interface BookFormProps {
 const BookForm: React.FC<BookFormProps> = ({onFormClose, options}) => {
     return (
         <Row className="px-0 my-4 my-md-4 mx-0">
-            <Form>
-                <Col xs={12} lg={9} className="px-0">
+            <Form className="ps-0">
+                <Col xs={12} lg={9} md={10} className="px-0">
                     <FormTitle name={"Book"} onFormClose={onFormClose}/>
                     <InputField title={"Title of the Book"}/>
                     <InputField title={"ISBN"}/>

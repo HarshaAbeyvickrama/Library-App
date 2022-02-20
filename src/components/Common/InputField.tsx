@@ -8,7 +8,7 @@ interface InputFieldProps {
 
 const InputField: React.FC<InputFieldProps> = ({title}) => {
     return (
-        <Col className="input-field my-2 ms-4">
+        <Col className="input-field my-2 ms-lg-4">
             <span>{title}</span>
             <input className="form-control mt-1"  type="text" required={true}/>
         </Col>

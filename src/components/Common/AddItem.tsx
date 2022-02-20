@@ -12,8 +12,8 @@ const AddItem :React.FC<SectionTitleProps> = ({title, onAddItemClick} ) => {
         onAddItemClick(true);
     }
     return(
-        <Row className="">
-            <Col className="d-inline-flex align-items-center add-item" onClick={onAddItemClicked}>
+        <Row className="mt-0 px-0">
+            <Col className="d-inline-flex align-items-center add-item mb" onClick={onAddItemClicked}>
                 <Plus className="add-icon d-inline-block pe-sm-1"/>
                 <span className="add-item-text">Add {title}</span>
             </Col>
