@@ -43,7 +43,7 @@ const AuthorSection: React.FC = () => {
                 ? <EmptyList sectionTitle={"Author"}/>
                 : <List items={authors} onDeleteIconClicked={onAuthorDeleteClicked}/>
             }
-            {!showAuthorForm && <AddItem title={"Author"} onAddItemClick={setShowAuthorForm}/>}
+           <AddItem title={"Author"} onAddItemClick={setShowAuthorForm}/>
             {showAuthorForm && <AuthorForm onFormClose={setShowAuthorForm}/>}
             <DeleteConfirmation
                 onDelete={onItemDeleted}

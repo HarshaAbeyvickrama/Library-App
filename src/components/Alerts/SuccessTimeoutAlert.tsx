@@ -7,11 +7,9 @@ interface SuccessTimeoutAlertProps {
     itemType: string
 }
 
-
 const SuccessTimeoutAlert: React.FC<SuccessTimeoutAlertProps> = ({itemType, show, setShow}) => {
     useEffect(() => {
         setTimeout(() => {
-            console.log("updated")
             setShow(false);
         }, 2000)
     }, [setShow, show])
