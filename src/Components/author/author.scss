@@ -1,0 +1,71 @@
+li{
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+ol{
+    margin-top: 1.2rem;
+}
+
+.line{
+    margin-top: 0.8rem;
+}
+
+.create-author{
+    color: hsl(171deg 52% 21%);
+    margin-top: 4rem;
+}
+
+.line{
+    color: hsl(171deg 52% 21%);
+}
+
+.createAuthorButton {
+  background-color: #01589d;
+}
+
+.author-name{
+    font-size: small;
+}
+
+.author-form{
+    padding-right: 5rem;
+}
+
+.author-list {
+    .hr {
+      margin-top: 0px !important;
+      border-bottom: 2px solid #2e3235 !important;
+      opacity: 1 !important;
+      height: 2px;
+    }
+  }
+  .edit {
+    color: #ee8e26;
+    cursor: pointer;
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .bin {
+    color: #a32728;
+    cursor: pointer;
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .author-name {
+    font-size: 30px;
+  }
+  
+  .author {
+    :hover {
+      background-color: #e7e8e7;
+    }
+  }
+  .plus {
+    color: #12489e;
+    cursor: pointer;
+    margin-top: 0.8rem;
+  }
+  

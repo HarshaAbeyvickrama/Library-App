@@ -1,0 +1,44 @@
+.photo-credit {
+  text-align: right;
+  padding-right: 3.5rem;
+}
+
+.hero{
+  .heading{
+    padding-top: 0.3rem;
+    padding-bottom: 0rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: hsl(189deg 21% 18%);
+  }
+}
+
+.px-0{
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+  color: hsl(189deg 21% 18%);
+}
+
+.img-hero{
+  margin: 0px 0px 5px 0px;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+hr{
+  margin-top: 0px !important;
+  border-bottom: 2px solid #2e3235 !important;
+  opacity: 1 !important;
+}
+
+container-fluid{
+  padding: 0;
+}
