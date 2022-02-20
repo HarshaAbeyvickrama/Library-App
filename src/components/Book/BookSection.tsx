@@ -58,7 +58,9 @@ const BookSection: React.FC = () => {
             <SuccessTimeoutAlert
                 show={showSuccessAlert}
                 setShow={setShowSuccessAlert}
-                itemType={"Book"}
+                message={"Book"}
+                title={"Book Deleted Successfully!"}
+                timeout={1500}
             />
 
         </React.Fragment>

@@ -18,12 +18,13 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
     const [newAuthor, setNewAuthor] = useState<IAuthor | null>(null);
     const [showAuthorForm, setShowAuthorForm] = useState(false);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
-    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [showDeleteSuccessAlert, setShowDeleteSuccessAlert] = useState(false);
+    const [showAddSuccessAlert, setShowAddSuccessAlert] = useState(false);
     const [currentAuthorToBeDeleted, setCurrentAuthorToBeDeleted] = useState<IAuthor | null>(null);
 
     const onItemDeleted = () => {
         setShowDeleteConfirmation(false);
-        setShowSuccessAlert(true);
+        setShowDeleteSuccessAlert(true);
     }
     const onAuthorDeleteClicked = (authorIndexToBeDeleted: number) => {
         if (!authors) {
@@ -44,17 +45,20 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
         const authorName = form.authorName.value;
         const author = {authorName: authorName};
         setNewAuthor(author);
+        setShowAddSuccessAlert(true);
+
     }
     useEffect(() => {
-        if(!newAuthor){
+        if (!newAuthor) {
             return;
         }
-        if(!authors){
+        if (!authors) {
             handleSetAuthors([newAuthor]);
-        }else{
-            handleSetAuthors([...authors,newAuthor]);
+        } else {
+            handleSetAuthors([...authors, newAuthor]);
         }
-    },[newAuthor])
+
+    }, [newAuthor])
 
 
     return (
@@ -75,10 +79,20 @@ const AuthorSection: React.FC<AuthorSectionProps> = ({authors, handleSetAuthors}
                 confirmBtnText={"Delete Author"}
             />
             <SuccessTimeoutAlert
-                show={showSuccessAlert}
-                setShow={setShowSuccessAlert}
-                itemType={"Author"}
+                show={showDeleteSuccessAlert}
+                setShow={setShowDeleteSuccessAlert}
+                message={"Author Deleted Succesfully"}
+                title={"Success"}
+                timeout={1500}
             />
+            <SuccessTimeoutAlert
+                show={showAddSuccessAlert}
+                setShow={setShowAddSuccessAlert}
+                message={""}
+                title={"Author Addedd Succesfully!"}
+                timeout={1500}
+            />
+
         </React.Fragment>
     );
 }
